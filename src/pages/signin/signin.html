@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Đăng nhập</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="signin"> 
+
+
+		<form (ngSubmit)="signin()" #registerForm="ngForm" margin-top>
+			<ion-list>
+
+			  <ion-item>
+			    <ion-label>Email</ion-label>
+			    <ion-input type="email" name="email" required [(ngModel)]="information.email"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label>Mật khẩu</ion-label>
+			    <ion-input type="password" name="password" required [(ngModel)]="information.password"></ion-input>
+			  </ion-item>
+				<ion-item>
+					<button ion-button type="submit" full padding [disabled]="!registerForm.form.valid">Đăng nhập</button>
+					<button ion-button clear full margin-top padding type="none">Quên mật khẩu?</button>
+				</ion-item>
+			</ion-list>
+
+		</form>		
+</ion-content>

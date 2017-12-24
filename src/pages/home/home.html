@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ăn gì đây?</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <!-- Slider -->
+  <ion-slides style="max-height: 200px;">
+    <ion-slide *ngFor="let i of ps">
+      <img (click)="detail(i.pro_id)" src="http://localhost/TMDT/assets/uploads/files/post/{{i.pro_post_image}}"/>
+    </ion-slide>
+
+  </ion-slides>
+    <!-- List -->
+    <ion-list>
+      <ion-item *ngFor="let i of list">
+          <ion-card>
+            <img src="http://localhost/TMDT/assets/uploads/files/post/{{i.pro_post_image}}"/>
+            <ion-card-content>
+              <ion-card-title>
+                {{i.pro_name}}
+                </ion-card-title>
+              <p>{{i.pro_address}}</p>
+              <ion-row>
+                <ion-col>
+                    <button ion-button full color="secondary">Còn lại:  &nbsp; <b>{{i.pro_current_stock}}</b></button>
+                </ion-col>
+                <ion-col><button ion-button full (click)="detail(i.pro_id)">Chi tiết & Nhận Coupon</button></ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+      </ion-item>
+    </ion-list>
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+ </ion-infinite-scroll>    
+</ion-content>
