@@ -1,6 +1,9 @@
 page-detail {
 	.star{
-		width:75px;
+		width:67px;
+		max-width:67px;
+		overflow:hidden;
+		white-space: nowrap;
 	}
 	.rating{
 		overflow:hidden;

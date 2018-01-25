@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,AlertController  } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import { ApiProvider } from '../../providers/api/api';
+
 
 @Component({
   selector: 'page-home',
@@ -13,12 +15,23 @@ export class HomePage {
   ps: any;
   pos: any = 0;
   g: any = 2;
-  constructor(public navCtrl: NavController,private _api: ApiProvider,private _toast: ToastController) {
+  active:any;
+  constructor(public navCtrl: NavController,private _api: ApiProvider,private _toast: ToastController,private _alert:AlertController,private _storage: Storage) {
       this.pos =0;
       this.g = 2;
   }
 
   ngOnInit(){
+      this._storage.get('user').then((val)=>{
+        this.active = val.user_active;
+        if(this.active!=2)
+        {
+          this._storage.remove('user');
+          this._storage.remove('email');
+          this.navCtrl.setRoot("NotactivePage");
+
+        }
+      });    
   	this._api.get('program').subscribe(data=>{
   		this.items = data;
   		this.list = this.items.slice(this.pos,this.g);

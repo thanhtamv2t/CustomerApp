@@ -8,11 +8,11 @@
 
 
 <ion-content>
-	<img src="http://localhost/TMDT/assets/uploads/files/post/{{program.pro_image}}"/>
+	<img src="https://tmdt.tt2t.info/assets/uploads/files/post/{{program.pro_image}}"/>
 	<div padding>
 		<h2 ion-text color="dark">{{program.pro_name}}</h2>
 		<p ion-text color="danger"><ion-icon name="navigate"></ion-icon> {{program.pro_address}}</p>
-		<div class="rating" ion-text color="warning">
+		<div class="rating" ion-text color="warning" [style.width.px]="program.pro_rating">
 			<div class="star">
 			<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
 			</div>
@@ -25,7 +25,7 @@
 		<ion-list>
 			  <ion-item>
 			    <ion-thumbnail item-start>
-			      <img src="http://localhost/TMDT/assets/uploads/files/post/{{program.pro_image}}">
+			      <img src="https://tmdt.tt2t.info/assets/uploads/files/post/{{program.pro_image}}">
 			    </ion-thumbnail>   			    
 			  </ion-item>
 		</ion-list>
@@ -37,13 +37,12 @@
 			    <ion-label>Chọn giờ đến</ion-label>
 			    <ion-select [(ngModel)]="gtime" name="time">	
 			    <div *ngFor="let t of time; let i = index">
-			    	<ion-option *ngIf="i==0" value="{{t}}" selected>{{t}}h</ion-option>	
-			    	<ion-option *ngIf="i!=0" value="{{t}}">{{t}}h</ion-option>	
+			    	<ion-option value="{{t}}">{{t}}h</ion-option>	
 			    </div>	      
 			    </ion-select>
 			  </ion-item>
 			  <ion-item>
-			  	<button ion-button full color="primary" padding>Nhận Coupon</button>
+			  	<button ion-button full color="primary" padding type="submit">Nhận Coupon</button>
 			  </ion-item>
 			</ion-list>						
 		</form>

@@ -8,11 +8,13 @@
 </ion-header>
 
 <ion-content>
-<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-searchbar (ionInput)="getItems($event)" placeHolder="Tìm kiếm..."></ion-searchbar>
     <!-- Slider -->
+
   <ion-slides style="max-height: 200px;">
-    <ion-slide *ngFor="let i of ps">
-      <img (click)="detail(i.pro_id)" src="http://localhost/TMDT/assets/uploads/files/post/{{i.pro_post_image}}"/>
+    <ion-slide *ngFor="let i of ps" text-center center>
+      <img (click)="detail(i.pro_id)" src="https://tmdt.tt2t.info/assets/uploads/files/post/{{i.pro_post_image}}" style="border-radius: 13px!important; max-width: 95%;"/>
+      <div class="title" padding color="light" style="background: #16a085;color:#ffffff;">{{i.pro_name}}</div>
     </ion-slide>
 
   </ion-slides>
@@ -20,7 +22,7 @@
     <ion-list>
       <ion-item *ngFor="let i of list">
           <ion-card>
-            <img src="http://localhost/TMDT/assets/uploads/files/post/{{i.pro_post_image}}"/>
+            <img src="https://tmdt.tt2t.info/assets/uploads/files/post/{{i.pro_post_image}}"/>
             <ion-card-content>
               <ion-card-title>
                 {{i.pro_name}}

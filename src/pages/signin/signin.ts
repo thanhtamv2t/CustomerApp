@@ -20,7 +20,7 @@ export class SigninPage {
   }
 
   information = {email: '',password: ''};
-  user = {user_id:'',user_name:'',user_avatar:'',user_email:'',user_active:'',user_verify:''};
+  user = {user_id:'',user_first:'',user_name:'',user_avatar:'',user_email:'',user_phone:'',user_active:'',user_verify:''};
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SigninPage');
@@ -43,10 +43,13 @@ export class SigninPage {
           this._api.get('user?email='+this.information.email).subscribe(db=>{
               this.temp = db;
               this.user.user_id=this.temp.user_id;
+              this.user.user_first = this.temp.user_firstname;
               this.user.user_name = this.temp.user_lastname;
               this.user.user_email = this.temp.user_email;
+              this.user.user_phone = this.temp.user_phone;
               this.user.user_active = this.temp.user_activation;
               this.user.user_verify = this.temp.user_email_verify;
+
               this._storage.set('user',this.user);
           });
           //

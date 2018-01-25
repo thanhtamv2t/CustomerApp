@@ -7,6 +7,8 @@ import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { RunPage } from '../pages/run/run';
+import { HistoryPage } from '../pages/history/history';
+import { ProfilePage } from '../pages/profile/profile';
 
 @Component({
   templateUrl: 'app.html'
@@ -35,8 +37,10 @@ export class MyApp {
       });
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Ăn gì đây?', component: HomePage },
+      { title: 'Thông tin cá nhân', component: ProfilePage },
+      { title: 'Lịch sử',component: HistoryPage}
+
     ];
 
 
@@ -55,5 +59,12 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+  signout()
+  {
+      this._storage.remove('email');
+      this._storage.remove('user');
+        this.nav.setRoot(RunPage);
+
   }
 }

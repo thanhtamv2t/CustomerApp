@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Cập nhật thông tin</ion-title>
+     <ion-buttons end>     	
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>    
+    </ion-buttons>   
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>	
+	<form (ngSubmit)="save()">
+		<ion-list>
+			<ion-item>
+				    <ion-label floating>Họ</ion-label>
+				    <ion-input type="text" [value]="first" [(ngModel)]="first" name="firstname" required></ion-input>				
+			</ion-item>		
+			<ion-item>
+				    <ion-label floating>Tên</ion-label>
+				    <ion-input type="text" [value]="last" [(ngModel)]="last" name="lastname" required></ion-input>				
+			</ion-item>	
+			<ion-item>
+			    <ion-label floating><ion-icon name="at"></ion-icon> Mật khẩu <small>Bỏ trống nếu không thay đổi</small></ion-label>
+			    <ion-input type="password" name="password" value="" [(ngModel)]="password"></ion-input>			
+			</ion-item>								
+			<ion-item>
+			    <ion-label floating><ion-icon name="at"></ion-icon> Email</ion-label>
+			    <ion-input type="text" [value]="email" name="email" readonly></ion-input>			
+			</ion-item>
+			<ion-item>
+			    <ion-label floating><ion-icon name="alert"></ion-icon> Số điện thoại</ion-label>
+			    <ion-input type="text" [value]="phone" name="phone" readonly></ion-input>
+			</ion-item>			
+			<ion-item>
+				<ion-row><button full ion-button type="submit">Lưu thay đổi</button></ion-row>
+			</ion-item>
+		</ion-list>
+	</form>
+</ion-content>

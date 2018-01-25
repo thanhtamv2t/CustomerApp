@@ -1,6 +1,13 @@
 page-login {
 	.login-box{
 		display: flex!important;
-		
+		margin-top:25vh!important;
+	}
+	.title{
+		font-family: 'Lobster', cursive;
+		font-size:4em!important;
+		margin-bottom:30px!important;
+		color:#16a085;
+		text-shadow:0 0 3px 3px #000;
 	}
 }

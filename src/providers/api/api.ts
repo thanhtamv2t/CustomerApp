@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ApiProvider {
 
-  url: string = 'http://localhost/TMDT/index.php/api/Customer';
+  url: string = 'https://tmdt.tt2t.info/api/Customer';
 
   constructor(public http: HttpClient) {
   }

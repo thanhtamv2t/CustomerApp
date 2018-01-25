@@ -9,6 +9,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { RunPage } from '../pages/run/run';
+import { CouponModalPage } from '../pages/coupon-modal/coupon-modal';
+import { HistoryPage } from '../pages/history/history';
+import { ProfilePage } from '../pages/profile/profile';
+import { ProfilemodalPage } from '../pages/profilemodal/profilemodal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +23,11 @@ import { ApiProvider } from '../providers/api/api';
     MyApp,
     HomePage,
     ListPage,
-    RunPage
+    RunPage,
+    CouponModalPage,
+    HistoryPage,
+    ProfilePage,
+    ProfilemodalPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,11 @@ import { ApiProvider } from '../providers/api/api';
     MyApp,
     HomePage,
     ListPage,
-    RunPage
+    RunPage,
+    CouponModalPage,
+    HistoryPage,
+    ProfilePage,
+    ProfilemodalPage
   ],
   providers: [
     StatusBar,

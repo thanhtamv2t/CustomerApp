@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Lịch sử nhận mã</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-row *ngIf="num==0">
+		<ion-col text-center center>
+			<img src="assets/imgs/outoftime.png" alt="">
+			<p ion-text color="danger">Hình như bạn chưa nhận mã lần nào?</p>			
+		</ion-col>
+	</ion-row>
+
+	<ion-card *ngFor="let i of db" >
+		<div *ngIf="i.status_history!=0">
+			<ion-card-header color="danger"><h3 ion-text color="dark">{{i.pro_name}}</h3></ion-card-header>
+				<ion-card-content>
+					<ion-row>
+							<ion-col text-center center ion-text color="danger">
+								<span *ngIf="i.status_history==1">Mã đã được sử dụng!</span>
+								<span *ngIf="i.status_history==2">Mã đã hết hạn sử dụng!</span>
+							</ion-col>
+					</ion-row>
+				</ion-card-content>				
+		</div>
+
+		<div *ngIf="i.status_history==0">
+			<ion-card-header color="dark"><h3 ion-text color="dark">{{i.pro_name}}</h3></ion-card-header>
+			<ion-card-content>
+				<ion-row>
+					<ion-col>Hạn sử dụng: </ion-col>
+					<ion-col>Từ {{i.time_start | date:"H" }}h - {{i.time_end | date:"H" }}h <br>Ngày: 
+					{{i.time_end | date: "dd/mm/yyyy"}}</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col><button ion-button full color="secondary" small (click)="codeView(i.code)">Xem mã</button></ion-col>
+				</ion-row>
+			</ion-card-content>			
+		</div>
+	</ion-card>
+</ion-content>

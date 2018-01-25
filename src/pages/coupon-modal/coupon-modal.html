@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Nhận Coupon</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-row>
+		<ion-col text-center center padding-top>
+			<div *ngIf="db.get_coupon==false" ion-text color="danger">Bạn đã vượt quá số lần nhận mã trong ngày!</div>
+			<div *ngIf="db.get_coupon==true" ion-text color="primary">Nhận mã thành công!</div>
+		</ion-col>
+	</ion-row>
+	<ion-row *ngIf="db.get_coupon==false">
+		<ion-col text-center center>
+			<img src="assets/imgs/outoftime.png" alt="Out of times">
+		</ion-col>
+	</ion-row>
+	<ion-row *ngIf="db.get_coupon==true">
+			<ion-col text-center>
+				<img src="https://tmdt.tt2t.info/Misc/qrCode/{{db.code}}" alt="#">
+			</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col ion-text text-center color="dark">Bạn có thể chụp màn hình hoặc xem lại tại phần lịch sử nhận mã.<br>Xin chân thành cảm ơn bạn đã sử dụng dịch vụ!</ion-col>
+	</ion-row>
+</ion-content>
